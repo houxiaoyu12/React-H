@@ -13,7 +13,7 @@ conn.on('connected',function () {
 })
 
 //2.得到对应的数据集合的Model
-//定义Schema（描述文档结构）
+//定义Schema（描述文档结构）约束条件
 const userSchema = mongoose.Schema({
   username: {type: String,required: true},//用户名
   password: {type: String,required: true},//密码
@@ -27,15 +27,15 @@ const UserModel = mongoose.model('users',userSchema)
 //通过Model实例的save（）添加数据
 function testSave() {
   const user = {
-    username: 'HXY',
-    password: md5('234'),
-    type: 'dashen'
+    username: 'Bob',
+    password: md5('123'),
+    type: 'laoban'
   }
   new UserModel(user).save(function (error, userDoc) {
     console.log('save()', error, userDoc)
   })
 }
-//testSave()
+// testSave()
 
 // 3.2. 通过Model的find()/findOne()查询多个或一个数据
 function testFind() {
@@ -63,9 +63,9 @@ function testUpdate() {
 
 // 3.4. 通过Model的remove()删除匹配的数据
 function testRemove() {
-  UserModel.remove({_id: '5ba066cadcd49708989068e6'}, function (error, doc) {
+  UserModel.remove({_id: '5ba0e8d8a8d5c921ac198868'}, function (error, doc) {
     console.log('remove()', error, doc)
   })
 }
-testRemove()
+//testRemove()
 

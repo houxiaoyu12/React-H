@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017/gzhipin5')
 const conn = mongoose.connection
 // 1.4. 绑定连接完成的监听(用来提示连接成功)
 conn.on('connnected', function () {
-  console.log('db connect success')
+  console.log('数据库连接成功~~~~~~')
 })
 
 /*2. 定义出对应特定集合的Model并向外暴露*/
